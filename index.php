@@ -33,6 +33,10 @@
   		<section class="container">
   			<div class="row">
   				<div class="offset-3 col-md-6">
+
+  					<h1>Formulaire de connexion</h1>
+  					<hr>
+  					
   					<form action="" method="">
   						
   						<article class="form-group">
