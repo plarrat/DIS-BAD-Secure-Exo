@@ -1,21 +1,20 @@
 <?php 
 
-// define("PARAM_HOST", "localhost");
-// define("PARAM_PORT", "3306");
-// define("PARAM_BDD", "secure-cours");
-// define("PARAM_USER", "root");
-// define("PARAM_PSWD", "");
+include("./config.php");
 
-// $bdd = new PDO("mysql:host=".PARAM_HOST."; port=".PARAM_PORT."; dbname=".PARAM_BDD, PARAM_USER, PARAM_PSWD);
+$valide = false;
+if(isset($_GET["action"]) && $_GET["action"]==="connexion"){
+	$login = $_POST["login"];
+	$mdp = $_POST["mdp"];
 
-// $req = $bdd->query("SELECT * FROM utilisateur");
+	$req = "SELECT * FROM utilisateur WHERE login = '$login' AND mdp = '$mdp' ";
 
-// while($res = $req->fetch(PDO::FETCH_ASSOC)){
-// 	var_dump($res);
-// }
+	$bdd = getPDO();
+	$res = $bdd->query($req);
+	$ligne = $res->fetch(PDO::FETCH_ASSOC);
+	if($ligne) $valide = true;
+}
 
-var_dump($_GET);
-var_dump($_POST);
  ?>
 
 <!DOCTYPE HTML>
@@ -57,6 +56,7 @@ var_dump($_POST);
   					<h1>Page Validation</h1>
   					<hr>
 
+  					<?php echo ($valide) ? "Authentification réussie" : "Accès refusé"; ?>
   				</div>
   			</div>
   		</section>
