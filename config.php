@@ -6,6 +6,9 @@ define("PARAM_BDD", "secure-cours");
 define("PARAM_USER", "root");
 define("PARAM_PSWD", "");
 
+define("PREFIXE", "@23ti89");
+define("SUFFIXE", "!Gg0)");
+
 function getPDO(){
 	return new PDO("mysql:host=".PARAM_HOST."; port=".PARAM_PORT."; dbname=".PARAM_BDD, PARAM_USER, PARAM_PSWD);
 
@@ -24,6 +27,15 @@ function Menu(){ ?>
 			        <li class="nav-item">
 			          <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
 			        </li>
+
+			        <li class="nav-item">
+			          <a class="nav-link active" aria-current="page" href="index.php">Formulaire Profile</a>
+			        </li>
+
+			        <li class="nav-item">
+			          <a class="nav-link active" aria-current="page" href="index.php">Profile</a>
+			        </li>
+
 			      </ul>
 			    </div>
 	  		</div>

@@ -11,14 +11,17 @@ if(isset($_GET["action"]) && $_GET["action"]==="connexion"){
 	
 	$bind = array();
 	$bind["login"] = $login;
-	$bind["mdp"] = $mdp;
+	$bind["mdp"] = PREFIXE.sha1($mdp).SUFFIXE;
 
+	var_dump($bind);
+	
 	$bdd = getPDO();
 	$res = $bdd->prepare($req);
 	$res->execute($bind);
 
 	$ligne = $res->fetch(PDO::FETCH_ASSOC);
 	if($ligne) $valide = true;
+
 }
 
  ?>
