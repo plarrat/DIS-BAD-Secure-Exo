@@ -1,18 +1,4 @@
-<?php 
-
-define("PARAM_HOST", "localhost");
-define("PARAM_PORT", "3306");
-define("PARAM_BDD", "secure-cours");
-define("PARAM_USER", "root");
-define("PARAM_PSWD", "");
-
-function getPDO(){
-	return new PDO("mysql:host=".PARAM_HOST."; port=".PARAM_PORT."; dbname=".PARAM_BDD, PARAM_USER, PARAM_PSWD);
-
-}
-
-function Menu(){ ?>
-	<header>
+<header>
   		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 	  		<div class="container-fluid">
 	    		<a class="navbar-brand" href="#">Secure App 1</a>
@@ -22,11 +8,13 @@ function Menu(){ ?>
 			    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 			      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 			        <li class="nav-item">
-			          <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
+			          <a class="nav-link active" aria-current="page" href="#">Accueil</a>
 			        </li>
 			      </ul>
 			    </div>
 	  		</div>
 		</nav>
   	</header>
-<?php } 
+
+
+<?php echo "Corrompu" ;?>
