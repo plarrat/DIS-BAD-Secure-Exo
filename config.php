@@ -29,11 +29,11 @@ function Menu(){ ?>
 			        </li>
 
 			        <li class="nav-item">
-			          <a class="nav-link active" aria-current="page" href="index.php">Formulaire Profile</a>
+			          <a class="nav-link active" aria-current="page" href="form-profile.php">Formulaire Profile</a>
 			        </li>
 
 			        <li class="nav-item">
-			          <a class="nav-link active" aria-current="page" href="index.php">Profile</a>
+			          <a class="nav-link active" aria-current="page" href="profile.php">Profile</a>
 			        </li>
 
 			      </ul>
