@@ -7,10 +7,16 @@ if(isset($_GET["action"]) && $_GET["action"]==="connexion"){
 	$login = $_POST["login"];
 	$mdp = $_POST["mdp"];
 
-	$req = "SELECT * FROM utilisateur WHERE login = '$login' AND mdp = '$mdp' ";
+	$req = "SELECT * FROM utilisateur WHERE login = :login AND mdp = :mdp ";
+	
+	$bind = array();
+	$bind["login"] = $login;
+	$bind["mdp"] = $mdp;
 
 	$bdd = getPDO();
-	$res = $bdd->query($req);
+	$res = $bdd->prepare($req);
+	$res->execute($bind);
+
 	$ligne = $res->fetch(PDO::FETCH_ASSOC);
 	if($ligne) $valide = true;
 }
@@ -40,7 +46,7 @@ if(isset($_GET["action"]) && $_GET["action"]==="connexion"){
 			    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 			      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 			        <li class="nav-item">
-			          <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+			          <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
 			        </li>
 			      </ul>
 			    </div>

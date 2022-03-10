@@ -2,14 +2,6 @@
 
 include("./config.php");
 
-$bdd = getPDO();
-
-$req = $bdd->query("SELECT * FROM utilisateur");
-
-while($res = $req->fetch(PDO::FETCH_ASSOC)){
-	var_dump($res);
-}
-
  ?>
 
 <!DOCTYPE HTML>
