@@ -7,10 +7,17 @@ $bdd = getPDO();
 // Traitement Formulaire
 if(isset($_GET["action"]) && $_GET["action"] === "modif"){
 	$id = $_POST["id"];
-	$prenom = $_POST["prenom"];
-	$nom = $_POST["nom"];
-	$login = $_POST["login"];
-	$commentaire = $_POST["commentaire"];
+	$prenom 			= htmlentities($_POST["prenom"]);
+	$nom 					= htmlentities($_POST["nom"]);
+	$login 				= htmlentities($_POST["login"]);
+	$commentaire 	= htmlentities($_POST["commentaire"]);
+
+	$bind = array();
+	$bind["id"] 					= $id;
+	$bind["prenom"] 			= $prenom;
+	$bind["nom"] 					= $nom;
+	$bind["login"] 				= $login;
+	$bind["commentaire"] 	= $commentaire;
 
 	$req = "UPDATE utilisateur 
 					set prenom = :prenom, 
@@ -20,7 +27,7 @@ if(isset($_GET["action"]) && $_GET["action"] === "modif"){
 					WHERE id = :id
 					";
 	$res = $bdd->prepare($req);
-	$res->execute($_POST);	
+	$res->execute($bind);	
 
 	header("Location: profile.php");			
 }
