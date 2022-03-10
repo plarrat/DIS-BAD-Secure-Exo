@@ -1,19 +1,21 @@
 <?php 
 
-define("PARAM_HOST", "localhost");
-define("PARAM_PORT", "3306");
-define("PARAM_BDD", "secure-cours");
-define("PARAM_USER", "root");
-define("PARAM_PSWD", "");
+// define("PARAM_HOST", "localhost");
+// define("PARAM_PORT", "3306");
+// define("PARAM_BDD", "secure-cours");
+// define("PARAM_USER", "root");
+// define("PARAM_PSWD", "");
 
-$bdd = new PDO("mysql:host=".PARAM_HOST."; port=".PARAM_PORT."; dbname=".PARAM_BDD, PARAM_USER, PARAM_PSWD);
+// $bdd = new PDO("mysql:host=".PARAM_HOST."; port=".PARAM_PORT."; dbname=".PARAM_BDD, PARAM_USER, PARAM_PSWD);
 
-$req = $bdd->query("SELECT * FROM utilisateur");
+// $req = $bdd->query("SELECT * FROM utilisateur");
 
-while($res = $req->fetch(PDO::FETCH_ASSOC)){
-	var_dump($res);
-}
+// while($res = $req->fetch(PDO::FETCH_ASSOC)){
+// 	var_dump($res);
+// }
 
+var_dump($_GET);
+var_dump($_POST);
  ?>
 
 <!DOCTYPE HTML>
@@ -52,25 +54,9 @@ while($res = $req->fetch(PDO::FETCH_ASSOC)){
   			<div class="row">
   				<div class="offset-3 col-md-6">
 
-  					<h1>Formulaire de connexion</h1>
+  					<h1>Page Validation</h1>
   					<hr>
 
-  					<form action="validation.php?action=connexion" method="POST">
-  						
-  						<article class="form-group">
-  							<label>Nom d'utilisateur</label>
-  							<input type="text" name="login" class="form-control">
-  						</article>
-
-  						<article class="form-group">
-  							<label>Mot de passe</label>
-  							<input type="password" name="mdp" class="form-control">
-  						</article>
-
-  						<hr>
-
-  						<button type="submit" class="btn btn-primary">Connexion</button>
-  					</form>
   				</div>
   			</div>
   		</section>
